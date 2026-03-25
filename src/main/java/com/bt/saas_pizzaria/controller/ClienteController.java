@@ -3,6 +3,8 @@ package com.bt.saas_pizzaria.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List; // 👈 IMPORTANTE
+
 import com.bt.saas_pizzaria.model.Cliente;
 import com.bt.saas_pizzaria.repository.ClienteRepository;
 
@@ -16,5 +18,10 @@ public class ClienteController {
     @PostMapping
     public Cliente salvar(@RequestBody Cliente cliente) {
         return repository.save(cliente);
+    }
+
+    @GetMapping
+    public List<Cliente> listar() {
+        return repository.findAll();
     }
 }
